@@ -126,13 +126,6 @@ class _WorkScreenState extends State<WorkScreen> {
               return GestureDetector(
                 onTap: () {
                   getAd(items[index].vid);
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => VideoScreen(
-                  //         video: items[index].vid,
-                  //       ),
-                  //     ));
                 },
                 child: Container(
                   child: Image.asset(items[index].img),

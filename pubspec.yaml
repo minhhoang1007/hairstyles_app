@@ -26,6 +26,7 @@ dependencies:
   video_player: ^0.10.4+1
   url_launcher: ^5.2.5
   firebase_admob: ^0.9.0+1
+  chewie: ^0.9.8+1
 
 dev_dependencies:
   flutter_test:

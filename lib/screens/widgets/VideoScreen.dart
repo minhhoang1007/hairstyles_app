@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 class VideoScreen extends StatefulWidget {
   String video;
@@ -11,6 +12,7 @@ class VideoScreen extends StatefulWidget {
 
 class _VideoScreenState extends State<VideoScreen> {
   VideoPlayerController playerController;
+  ChewieController _chewieController;
   VoidCallback listener;
 
   @override
@@ -20,6 +22,12 @@ class _VideoScreenState extends State<VideoScreen> {
     listener = () {
       setState(() {});
     };
+    _chewieController = ChewieController(
+      videoPlayerController: playerController,
+      // aspectRatio: 3 / 2,
+      // autoPlay: true,
+      // looping: true,
+    );
   }
 
   void createVideo() {
@@ -47,6 +55,13 @@ class _VideoScreenState extends State<VideoScreen> {
   }
 
   @override
+  void dispose() {
+    playerController.dispose();
+    _chewieController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -65,15 +80,18 @@ class _VideoScreenState extends State<VideoScreen> {
         backgroundColor: Color.fromARGB(255, 255, 102, 204),
       ),
       body: Center(
-        child: AspectRatio(
-          aspectRatio: 16 / 9,
-          child: Container(
-            child: playerController == null
-                ? Container(
-                    child: CircularProgressIndicator(),
-                  )
-                : VideoPlayer(playerController),
-          ),
+        child: Chewie(
+          controller: _chewieController,
+          //         child: AspectRatio(
+          //   aspectRatio: 16 / 9,
+          //   child: Container(
+          //     child: playerController == null
+          //         ? Container(
+          //             child: CircularProgressIndicator(),
+          //           )
+          //         : VideoPlayer(playerController),
+          //   ),
+          // ),
         ),
       ),
     );
