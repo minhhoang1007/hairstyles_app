@@ -128,7 +128,8 @@ class _LongScreenState extends State<LongScreen> {
         isLoad
             ? Positioned(
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 1,
+                  color: Colors.transparent,
+                  height: MediaQuery.of(context).size.height,
                   width: double.infinity,
                   child: Center(
                     child: CircularProgressIndicator(),

@@ -10,12 +10,12 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+  String urlFeedback = 'https://flutter.dev';
+  String urlRate = 'https://flutter.dev';
+  String urlMore = 'https://flutter.dev';
+  String urlFB = 'https://flutter.dev';
+  String urlPolicy = 'https://flutter.dev';
 
-  String urlFeedback = "Feedback app";
-  String urlRate = "Rate app";
-  String urlMore = "More app";
-  String urlFB = "Like facebook";
-  String urlPolicy = "Policy"; 
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -63,8 +63,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
               "Rate us",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            onTap: (){
-             ShareAPP().launchURL(urlRate);
+            onTap: () {
+              ShareAPP().launchURL(urlRate);
             },
           ),
           ListTile(
@@ -101,7 +101,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
-             ShareAPP().launchURL(urlFeedback);
+              ShareAPP().launchURL(urlFeedback);
             },
           ),
           ListTile(
