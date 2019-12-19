@@ -1,6 +1,7 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hairstyles_app/screens/widgets/VideoScreen.dart';
+import 'package:hairstyles_app/utils/Common.dart';
 
 class WorkScreen extends StatefulWidget {
   WorkScreen({Key key}) : super(key: key);
@@ -30,20 +31,14 @@ class _WorkScreenState extends State<WorkScreen> {
     Itemm("assets/work/work15.jpg", "assets/work/work15.mp4"),
     Itemm("assets/work/work16.jpg", "assets/work/work16.mp4"),
   ];
-  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-    testDevices: testDevice != null ? <String>[testDevice] : null,
-    nonPersonalizedAds: true,
-    keywords: <String>['Game', 'Mario'],
-  );
   BannerAd _bannerAd;
   InterstitialAd _interstitialAd;
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
         adUnitId: BannerAd.testAdUnitId,
-        //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
-        targetingInfo: targetingInfo,
+        targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
           print("BannerAd $event");
         });
@@ -105,11 +100,24 @@ class _WorkScreenState extends State<WorkScreen> {
     super.initState();
   }
 
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        });
+  }
+
   @override
   void dispose() {
     super.dispose();
   }
 
+  final GlobalKey<State> _keyLoader = new GlobalKey<State>();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -135,10 +143,13 @@ class _WorkScreenState extends State<WorkScreen> {
         isLoad
             ? Positioned(
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 1,
+                  color: Colors.transparent,
+                  height: MediaQuery.of(context).size.height,
                   width: double.infinity,
                   child: Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.pink,
+                    ),
                   ),
                 ),
               )

@@ -1,6 +1,7 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hairstyles_app/screens/widgets/VideoScreen.dart';
+import 'package:hairstyles_app/utils/Common.dart';
 
 class LongScreen extends StatefulWidget {
   LongScreen({Key key}) : super(key: key);
@@ -8,8 +9,6 @@ class LongScreen extends StatefulWidget {
   @override
   _LongScreenState createState() => _LongScreenState();
 }
-
-const String testDevice = 'MobileId';
 
 class _LongScreenState extends State<LongScreen> {
   List<Itemm> items = [
@@ -30,11 +29,6 @@ class _LongScreenState extends State<LongScreen> {
     Itemm("assets/long/easy15.jpg", "assets/long/easy15.mp4"),
     Itemm("assets/long/easy16.jpg", "assets/long/easy16.mp4"),
   ];
-  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-    testDevices: testDevice != null ? <String>[testDevice] : null,
-    nonPersonalizedAds: true,
-    keywords: <String>['Game', 'Mario'],
-  );
   BannerAd _bannerAd;
   InterstitialAd _interstitialAd;
   bool isLoad = false;
@@ -43,7 +37,7 @@ class _LongScreenState extends State<LongScreen> {
         adUnitId: BannerAd.testAdUnitId,
         //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
-        targetingInfo: targetingInfo,
+        targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
           print("BannerAd $event");
         });

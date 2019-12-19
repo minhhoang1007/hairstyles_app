@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hairstyles_app/utils/Share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -9,15 +10,12 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
-  _launchURL() async {
-    const url = 'https://flutter.dev';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 
+  String urlFeedback = "Feedback app";
+  String urlRate = "Rate app";
+  String urlMore = "More app";
+  String urlFB = "Like facebook";
+  String urlPolicy = "Policy"; 
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -65,8 +63,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
               "Rate us",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            onTap: () {
-              _launchURL();
+            onTap: (){
+             ShareAPP().launchURL(urlRate);
             },
           ),
           ListTile(
@@ -76,7 +74,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
-              _launchURL();
+              ShareAPP().launchURL(urlMore);
             },
           ),
           ListTile(
@@ -86,7 +84,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
-              _launchURL();
+              ShareAPP().launchURL(urlFB);
             },
           ),
           ListTile(
@@ -103,7 +101,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
-              _launchURL();
+             ShareAPP().launchURL(urlFeedback);
             },
           ),
           ListTile(
@@ -113,7 +111,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
-              _launchURL();
+              ShareAPP().launchURL(urlPolicy);
             },
           ),
         ],

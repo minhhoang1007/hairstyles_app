@@ -24,7 +24,7 @@ class _VideoScreenState extends State<VideoScreen> {
     };
     _chewieController = ChewieController(
       videoPlayerController: playerController,
-      // aspectRatio: 3 / 2,
+      aspectRatio: 3 / 2,
       // autoPlay: true,
       // looping: true,
     );
@@ -77,7 +77,7 @@ class _VideoScreenState extends State<VideoScreen> {
         ),
         title: Text("Step by step",
             style: TextStyle(color: Colors.white, fontSize: 16)),
-        backgroundColor: Color.fromARGB(255, 255, 102, 204),
+        backgroundColor: Color.fromARGB(255, 200, 102, 204),
       ),
       body: Center(
         child: Chewie(

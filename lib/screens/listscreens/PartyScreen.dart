@@ -1,6 +1,7 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hairstyles_app/screens/widgets/VideoScreen.dart';
+import 'package:hairstyles_app/utils/Common.dart';
 
 class PartyScreen extends StatefulWidget {
   PartyScreen({Key key}) : super(key: key);
@@ -8,8 +9,6 @@ class PartyScreen extends StatefulWidget {
   @override
   _PartyScreenState createState() => _PartyScreenState();
 }
-
-const String testDevice = 'MobileId';
 
 class _PartyScreenState extends State<PartyScreen> {
   List<Itemm> items = [
@@ -30,11 +29,6 @@ class _PartyScreenState extends State<PartyScreen> {
     Itemm("assets/party/party15.jpg", "assets/party/party15.mp4"),
     Itemm("assets/party/party16.jpg", "assets/party/party16.mp4"),
   ];
-  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-    testDevices: testDevice != null ? <String>[testDevice] : null,
-    nonPersonalizedAds: true,
-    keywords: <String>['Game', 'Mario'],
-  );
   BannerAd _bannerAd;
   InterstitialAd _interstitialAd;
   bool isLoad = false;
@@ -43,7 +37,7 @@ class _PartyScreenState extends State<PartyScreen> {
         adUnitId: BannerAd.testAdUnitId,
         //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
-        targetingInfo: targetingInfo,
+        targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
           print("BannerAd $event");
         });
