@@ -118,13 +118,7 @@ class _ShortScreenState extends State<ShortScreen> {
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => VideoScreen(
-                          video: items[index].vid,
-                        ),
-                      ));
+                  getAd(items[index].vid);
                 },
                 child: Container(
                   child: Image.asset(items[index].img),
