@@ -34,7 +34,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: BannerAd.testAdUnitId,
+        adUnitId: appId,
         //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
@@ -48,7 +48,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: InterstitialAd.testAdUnitId,
+      adUnitId: appId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();
@@ -95,7 +95,7 @@ class _SchoolScreenState extends State<SchoolScreen> {
   @override
   void initState() {
     super.initState();
-    FirebaseAdMob.instance.initialize(appId: BannerAd.testAdUnitId);
+    FirebaseAdMob.instance.initialize(appId: appId);
     super.initState();
   }
 

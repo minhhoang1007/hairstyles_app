@@ -36,7 +36,7 @@ class _WorkScreenState extends State<WorkScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: BannerAd.testAdUnitId,
+        adUnitId: appId,
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
@@ -49,7 +49,7 @@ class _WorkScreenState extends State<WorkScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: InterstitialAd.testAdUnitId,
+      adUnitId: appId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();
@@ -96,7 +96,7 @@ class _WorkScreenState extends State<WorkScreen> {
   @override
   void initState() {
     super.initState();
-    FirebaseAdMob.instance.initialize(appId: BannerAd.testAdUnitId);
+    FirebaseAdMob.instance.initialize(appId: appId);
     super.initState();
   }
 
