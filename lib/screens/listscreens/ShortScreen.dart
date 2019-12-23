@@ -2,6 +2,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hairstyles_app/screens/widgets/VideoScreen.dart';
 import 'package:hairstyles_app/utils/Common.dart';
+import 'package:hairstyles_app/utils/Common.dart' as prefix0;
 
 class ShortScreen extends StatefulWidget {
   ShortScreen({Key key}) : super(key: key);
@@ -34,8 +35,7 @@ class _ShortScreenState extends State<ShortScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: appId,
-        //Change BannerAd adUnitId with Admob ID
+        adUnitId: bannerId,
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
@@ -48,7 +48,7 @@ class _ShortScreenState extends State<ShortScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: appId,
+      adUnitId: interUnitId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();

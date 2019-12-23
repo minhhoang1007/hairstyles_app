@@ -34,7 +34,7 @@ class _PartyScreenState extends State<PartyScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: appId,
+        adUnitId: bannerId,
         //Change BannerAd adUnitId with Admob ID
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
@@ -48,7 +48,7 @@ class _PartyScreenState extends State<PartyScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: appId,
+      adUnitId: interUnitId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();

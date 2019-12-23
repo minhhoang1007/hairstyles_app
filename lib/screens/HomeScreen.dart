@@ -69,12 +69,13 @@ class _HomeScreenState extends State<HomeScreen>
               controller: _tabController,
               indicatorColor: Colors.white,
               isScrollable: true,
-              //indicatorSize: TabBarIndicatorSize.tab,
+              indicatorSize: TabBarIndicatorSize.tab,
             ),
             bottomOpacity: 1,
           ),
           body: TabBarView(
             controller: _tabController,
+            physics: NeverScrollableScrollPhysics(),
             children: [
               WorkScreen(),
               SchoolScreen(),

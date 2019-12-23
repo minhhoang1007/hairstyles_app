@@ -36,7 +36,7 @@ class _WorkScreenState extends State<WorkScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: appId,
+        adUnitId: bannerId,
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
@@ -49,7 +49,7 @@ class _WorkScreenState extends State<WorkScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: appId,
+      adUnitId: interUnitId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();

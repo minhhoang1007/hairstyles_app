@@ -34,8 +34,7 @@ class _LongScreenState extends State<LongScreen> {
   bool isLoad = false;
   BannerAd createBannerAd() {
     return BannerAd(
-        adUnitId: appId,
-        //Change BannerAd adUnitId with Admob ID
+        adUnitId: bannerId,
         size: AdSize.banner,
         targetingInfo: ADS().targetingInfo,
         listener: (MobileAdEvent event) {
@@ -48,7 +47,7 @@ class _LongScreenState extends State<LongScreen> {
       isLoad = true;
     });
     _interstitialAd = InterstitialAd(
-      adUnitId: appId,
+      adUnitId: interUnitId,
       listener: (MobileAdEvent event) {
         if (event == MobileAdEvent.closed) {
           _interstitialAd.load();
@@ -86,7 +85,6 @@ class _LongScreenState extends State<LongScreen> {
                 video: item,
               ),
             ));
-
         break;
       default:
     }
