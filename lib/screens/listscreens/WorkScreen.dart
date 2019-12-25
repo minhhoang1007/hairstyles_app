@@ -87,7 +87,6 @@ class _WorkScreenState extends State<WorkScreen> {
                 video: item,
               ),
             ));
-
         break;
       default:
     }

@@ -33,7 +33,8 @@ class _HomeScreenState extends State<HomeScreen>
           key: _scaffoldKey,
           drawer: DrawerScreen(),
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 255, 102, 204),
+            //backgroundColor: Color.fromARGB(255, 255, 102, 204),
+            backgroundColor: Color.fromARGB(255, 127, 228, 125),
             leading: IconButton(
               icon: Icon(
                 Icons.list,
