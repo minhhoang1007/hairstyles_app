@@ -78,7 +78,7 @@ class _VideoScreenState extends State<VideoScreen> {
         title: Text("Step by step",
             style: TextStyle(color: Colors.white, fontSize: 16)),
         // backgroundColor: Color.fromARGB(255, 200, 102, 204),
-        backgroundColor: Color.fromARGB(255, 127, 228, 125),
+        backgroundColor: Color.fromARGB(255, 221, 169, 203),
       ),
       body: Center(
         child: Chewie(
